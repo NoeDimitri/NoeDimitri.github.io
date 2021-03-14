@@ -198,19 +198,21 @@
           }
       }
 
-      function PosturnCorrection(leftSholderY, rightSholderY, NoseY){
+      var audio = new Audio('https://media.geeksforgeeks.org/wp-content/uploads/20190531135120/beep.mp3');
+      
+      function PosturnCorrection(leftSholderY, rightSholderY, NoseY){ 
           var sholder_diff = Math.abs(leftSholderY - rightSholderY);
           var nose_to_leftSholder = Math.abs(leftSholderY - NoseY);
 
           // measures if sholders are level
           if(sholder_diff > 15){
               document.getElementById("turn").innerHTML = "Uneven Sholders!";
-              
+              audio.play();
               
           // compares distence from nose to sholder based on inital value
           }else if(Math.abs(inital_nose_to_LeftSholder_height - nose_to_leftSholder) > 5){
               document.getElementById("turn").innerHTML = "Your Slumping!";
-              
+              audio.play();
 
           } else {
               document.getElementById("turn").innerHTML = "Excellent";
