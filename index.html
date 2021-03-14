@@ -124,7 +124,7 @@
           // continuously runs function to correct posture
           window.setInterval(function () {
               take_snapshot();
-              PostureCorrection(leftSholder_y, rightSholder_y, nose_y);
+              PosturnCorrection(leftSholder_y, rightSholder_y, nose_y);
           }, 200)
       }
 
@@ -198,10 +198,10 @@
       }
 
       var audio = new Audio('https://media.geeksforgeeks.org/wp-content/uploads/20190531135120/beep.mp3');
-      
-      function PostureCorrection(leftSholderY, rightSholderY, NoseY){ 
+
+      function PosturnCorrection(leftSholderY, rightSholderY, NoseY){ 
           var sholder_diff = Math.abs(leftSholderY - rightSholderY);
-          var nose_to_leftShoulder = Math.abs(leftSholderY - NoseY);
+          var nose_to_leftSholder = Math.abs(leftSholderY - NoseY);
 
           // measures if sholders are level
           if(sholder_diff > 15){
@@ -209,8 +209,8 @@
               audio.play();
               
           // compares distence from nose to sholder based on inital value
-          }else if(Math.abs(inital_nose_to_LeftSholder_height - nose_to_leftShoulder) > 5){
-              document.getElementById("turn").innerHTML = "You're Slumping!";
+          }else if(Math.abs(inital_nose_to_LeftSholder_height - nose_to_leftSholder) > 5){
+              document.getElementById("turn").innerHTML = "Your Slumping!";
               audio.play();
 
           } else {
